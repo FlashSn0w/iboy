@@ -1,0 +1,269 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@600;700&family=Poppins:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Russo One", sans-serif;
+  height: 100vh;
+}
+/* style navbar */
+nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  height: 60px;
+  display: flex;
+  justify-content: space-around;
+  background: #343f4f;
+  z-index: 2;
+}
+nav .logo {
+  font-size: 25px;
+}
+nav .nav-items {
+  display: flex;
+  list-style-type: none;
+}
+nav a {
+  height: 100%;
+  padding: 0px 10px 0px 10px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+  text-transform: uppercase;
+  transition: 0.5s;
+}
+nav a:hover {
+  color: #5858ff;
+}
+nav ul li a::after {
+  content: "";
+  width: 0%;
+  height: 2px;
+  margin: auto;
+  position: absolute;
+  inset: 100% 0 0 0;
+  transition: 0.3s;
+  background: #5858ff;
+}
+nav ul li a:hover::after {
+  width: 100%;
+}
+/* optimise navbar for mobile phones */
+@media (max-width: 670px) {
+  .nav-items {
+    height: 200px;
+    width: 100%;
+    padding: 10px;
+    position: fixed;
+    top: 60px;
+    justify-content: space-around;
+    flex-direction: column;
+    right: -100%;
+    z-index: 99;
+    transition: 0.3s ease-in;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background: #343f4f;
+  }
+  .nav-items li {
+    width: 100%;
+    justify-content: center;
+  }
+  .bars {
+    height: auto;
+    width: 22px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .bars .bar {
+    height: 2px;
+    width: 100%;
+    background: #fff;
+    margin: 2px;
+  }
+  nav ul li a::after {
+    height: 0px;
+    transition: 0.1s;
+  }
+}
+/* The active class below will be used to toggle the nav -items in JS */
+nav .nav-items.active {
+  right: 0;
+}
+/* style content */
+section {
+  height: 100vh;
+  width: 100%;
+}
+#home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+  background: #343f4f;
+}
+#home .info {
+  font-family: "Poppins", sans-serif;
+  width: 30%;
+  color: #fff;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+#download {
+  height: 400px;
+  padding-top: 80px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 50px;
+  color: #fff;
+  background: linear-gradient(62deg, #3a3d40 0%, #181719 100%);
+}
+#download .downloadBtns {
+  display: flex;
+  gap: 50px;
+}
+#download .downloadBtns button {
+  position: relative;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  background: #ff0000;
+  border-radius: 5px;
+  border: transparent;
+  transition: 0.5s;
+  cursor: pointer;
+  z-index: 1;
+}
+#download .downloadBtns button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: scaleX(0);
+  background: #0d6efd;
+  border-radius: 5px;
+  transition: 0.3s ease-in-out;
+  z-index: -1;
+}
+#download .downloadBtns button:hover::after {
+  border: 0;
+  transform: scaleX(1);
+}
+#tutorials {
+  display: grid;
+  grid-template-columns: 400px 400px 400px 400px;
+  grid-template-rows: 250px;
+  justify-content: center;
+  align-content: center;
+  column-gap: 50px;
+  row-gap: 100px;
+}
+#tutorials .tut {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  gap: 15px;
+}
+#tutorials a {
+  color: #000;
+  text-decoration: none;
+  transition: 0.3s;
+}
+#tutorials a:hover {
+  color: #0d6efd;
+}
+#tutorials .tut image {
+  width: 100%;
+}
+#support {
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 40px;
+  color: #fff;
+  background: linear-gradient(62deg, #3a3d40 0%, #181719 100%);
+}
+#support h1 a {
+  color: #ffa500;
+  text-decoration: none;
+}
+#support h1 a:hover {
+  color: #ff0000;
+}
+#support .socialMedia {
+  display: flex;
+  gap: 20px;
+}
+#support .socialMedia .fa-brands {
+  width: 33px;
+  height: 30px;
+  color: #fff;
+  font-size: 30px;
+  overflow: hidden;
+  transition: all 0.18s ease-out;
+}
+#support .socialMedia .fa-telegram:hover {
+  width: 210px;
+  color: #0d6efd;
+}
+#support .socialMedia .fa-youtube:hover {
+  width: 200px;
+  color: #ff0000;
+}
+#support .socialMedia .fa-instagram:hover {
+  width: 235px;
+  color: #e1306c;
+}
+#support .socialMedia .fa-twitter:hover {
+  width: 200px;
+  color: #1da1f2;
+}
+@media (max-width: 1820px) {
+  #tutorials {
+    height: 180vh;
+    grid-template-columns: 400px 400px;
+    grid-template-rows: 250px 250px 250px 250px;
+  }
+}
+@media (max-width: 960px) {
+  #tutorials {
+    height: 3300px;
+    grid-template-columns: 370px;
+    grid-template-rows: 250px 250px 250px 250px 250px;
+  }
+}
+@media (max-width: 1200px) {
+  #home {
+    flex-direction: column;
+  }
+  #home .info {
+    width: 70%;
+  }
+  #downloads {
+    height: 150vh;
+  }
+  #support h1 {
+    width: 80%;
+    text-align: center;
+  }
+  #download .downloadBtns {
+    flex-direction: column;
+    align-items: center;
+  }
+}
